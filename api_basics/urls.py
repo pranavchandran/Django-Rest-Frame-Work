@@ -15,6 +15,9 @@ urlpatterns = [
     path('article/<int:pk>/',ArticleDetail.as_view()),
     path('viewset/',include(router.urls)),
     path('viewset/<int:pk>/',include(router.urls)),
+    path('',include('djoser.urls')),
+    path('',include('djoser.urls.authtoken')),
+
 ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns)

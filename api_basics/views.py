@@ -25,6 +25,8 @@ class ArticleViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.Create
     
         queryset = Article.objects.all()
         serializer_class = ArticleSerializer
+        # authentication_classes = [TokenAuthentication]
+        # permission_classes = [IsAuthenticated]
 
 
 
@@ -67,15 +69,15 @@ class ArticleList(generics.ListCreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 
