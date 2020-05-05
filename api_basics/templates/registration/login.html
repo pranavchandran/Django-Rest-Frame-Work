@@ -1,0 +1,22 @@
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Login</button>
+</form>
+
+<h5>Help you to login the view
+    auth/viewset/article/
+</h5>
+<h1>DJANGO REST FRAME WORK</h1>
+<h2>{{user}} </h2>
+
+{% if user.is_authenticated %}
+
+<li><a href="{% url 'logout' %}"><button>Logout</button></a></button></a></li>
+    {{user}}
+{% else %}
+<li><a href="{% url 'login' %}"><button>Login</button></a></button></li>
+
+{% endif %}
+
