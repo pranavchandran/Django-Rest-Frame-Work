@@ -3,6 +3,7 @@ from .models import Article
 
 
 
+
 # Normal Serializer
 
 # class ArticleSerializer(serializers.Serializer):

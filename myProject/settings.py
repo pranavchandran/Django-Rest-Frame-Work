@@ -41,7 +41,8 @@ INSTALLED_APPS = [
      'rest_framework',
      'django_extensions',
      'rest_framework.authtoken',
-     'djoser'
+     'djoser',
+     'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,7 @@ STATIC_URL = '/static/'
 # LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/auth/viewset/article/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

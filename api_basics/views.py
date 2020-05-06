@@ -15,6 +15,8 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
+import django_filters.rest_framework
+from rest_framework import filters
 # Create your views here.
 # @csrf_exempt
 # After importing api_view we dont want more @csrf_exempt
@@ -68,16 +70,19 @@ class ArticleViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.Create
 class ArticleList(generics.ListCreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    # trying to adding search field
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['email']
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
 
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
 
 
 
